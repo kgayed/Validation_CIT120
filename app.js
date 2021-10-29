@@ -100,14 +100,12 @@ function viewpage() {
     var importance = document.createElement("input")
     responseDive2.appendChild(Text)
     responseDive2.appendChild(importance)
-    var submit = document.createElement("button");
-        responseDive2.appendChild(submit)
-        submit.innerHTML="Submit";
-    submit.addEventListener("click",function (){
+    var submitAnswer = document.createElement("button");
+    responseDive2.appendChild(submitAnswer)
+    submitAnswer.innerHTML="Submit";
+    submitAnswer.addEventListener("click",function (){
 
-    });
-
-    if (Text.length>=""&&isNaN(importance)){
+        if (Text.length>=""&&isNaN(importance)){
         responseDive2.innerHTML="You have entered an invalid importance"
     }
     else if (Text.length<=""&&!isNaN(importance)){
@@ -123,9 +121,9 @@ function viewpage() {
         renderList();
     }
 
+    });
 
-};
-
+}
 
 
 
