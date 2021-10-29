@@ -10,20 +10,10 @@ document.body.querySelector(".butt").addEventListener("click", function () {
         navigate("Home");
     } else {
         responseDiv.innerHTML = "You have the wrong username!";
-    };
+    }
 
 });
 
-var list=[];
-function renderList(){
-    var itemsDiv=document.body.querySelector(".items");
-    itemsDiv.innerHTML="";
-    for (var i=0; i<list.length; i++){
-        var ele=document.createElement("div")
-        ele.innerHTML=list[i];
-        itemsDiv.appendChild(ele)
-    }
-}
 
 var pages=["Home","About","View"];
 function createNav() {
@@ -103,28 +93,21 @@ function viewpage() {
     var submitAnswer = document.createElement("button");
     responseDive2.appendChild(submitAnswer)
     submitAnswer.innerHTML="Submit";
-    submitAnswer.addEventListener("click",function (){
+    submitAnswer.addEventListener("click",function () {
 
-        if (Text.length>=""&&isNaN(importance)){
-        responseDive2.innerHTML="You have entered an invalid importance"
-    }
-    else if (Text.length<=""&&!isNaN(importance)){
-        responseDive2.innerHTML="You have entered an invalid Text"
+        if (Text.length >= "" && isNaN(importance)) {
+            responseDive2.innerHTML = "You have entered an invalid importance"
+        } else if (Text.length <= "" && !isNaN(importance)) {
+            responseDive2.innerHTML = "You have entered an invalid Text"
 
-    }
-    else if(Text.length<=""&&isNaN(importance))
-        responseDive2.innerHTML="Nothing you have entered is valid"
-    else{
-        responseDiv.innerHTML="";
-        list.push(Text);
-        list.push(importance);
-        renderList();
-    }
+        } else if (Text.length <= "" && isNaN(importance))
+            responseDive2.innerHTML = "Nothing you have entered is valid"
+        else {
+            responseDiv.innerHTML = Text + importance;
 
-    });
 
-}
-
+        }
+    })}
 
 
 
