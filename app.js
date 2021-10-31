@@ -4,7 +4,6 @@ document.body.querySelector(".butt").addEventListener("click", function () {
     var textValue = document.body.querySelector(".input").value;
 
     if (textValue === "coolStudent123"|| textValue=== "coolstudent123") {
-
         createNav();
         createWrapper();
         navigate("Home");
@@ -17,6 +16,8 @@ document.body.querySelector(".butt").addEventListener("click", function () {
 
 var pages=["Home","About","View"];
 function createNav() {
+    document.body.innerHTML=""
+
     var nav = document.createElement("nav");
     createButton(pages[0]);
     createButton(pages[1]);
@@ -28,6 +29,7 @@ function createNav() {
         var butt = document.createElement("button");
         butt.innerHTML = pg;
         butt.addEventListener("click", function () {
+
             navigate(pg);
 
         });
@@ -88,22 +90,26 @@ function viewpage() {
 
     var Text = document.createElement("input")
     var importance = document.createElement("input")
+    responseDive2.classList.add("Text");
+    responseDive2.classList.add("importance");
     responseDive2.appendChild(Text)
     responseDive2.appendChild(importance)
+    document.body.appendChild(Text)
+    document.body.appendChild(importance)
     var submitAnswer = document.createElement("button");
     responseDive2.appendChild(submitAnswer)
+    document.body.appendChild(submitAnswer)
     submitAnswer.innerHTML="Submit";
     submitAnswer.addEventListener("click",function () {
-
-        if (Text.length >= "" && isNaN(importance)) {
+        if (Text.value.length >= "" && isNaN(importance.value)) {
             responseDive2.innerHTML = "You have entered an invalid importance"
-        } else if (Text.length <= "" && !isNaN(importance)) {
+        } else if (Text.value.length <= "" && !isNaN(importance.value)) {
             responseDive2.innerHTML = "You have entered an invalid Text"
 
-        } else if (Text.length <= "" && isNaN(importance))
+        } else if (Text.value.length <= "" && isNaN(importance.value))
             responseDive2.innerHTML = "Nothing you have entered is valid"
         else {
-            responseDiv.innerHTML = Text + importance;
+            responseDive2.innerHTML = "Note: "+Text.value + " Importance: "+importance.value;
 
 
         }
